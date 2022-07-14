@@ -12,27 +12,27 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/line"
-        app:layout_constraintVertical_bias="0.35">
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toEndOf="@id/playBtn"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/ttt_background"
+            android:contentDescription="@string/background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/background" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/oneOne"
             style="@style/custom_button"
             android:src="@drawable/cross"
+            android:contentDescription="@string/field"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/field" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/oneTwo"
@@ -102,29 +102,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/play"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.57" />
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toEndOf="@id/line"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageView
         android:id="@+id/line"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="50dp"
         android:background="@color/purple_200"
         android:contentDescription="@string/line"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/playerOneScoreTv"/>
+        app:layout_constraintStart_toEndOf="@id/playerOneText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/playerOneLine"
         android:layout_width="0dp"
         android:layout_height="5dp"
         android:background="@color/purple_200"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="@id/playerOneText"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="@id/playerOneText"/>
@@ -167,9 +167,8 @@
         android:layout_width="0dp"
         android:layout_height="5dp"
         android:background="@color/white"
-        android:layout_marginTop="38dp"
+        app:layout_constraintBottom_toTopOf="@id/playerTwoText"
         app:layout_constraintStart_toStartOf="@id/playerTwoText"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="@id/playerTwoText"/>
 
     <TextView
@@ -177,12 +176,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/purple_200"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="8dp"
         android:textSize="18sp"
         android:text="@string/player_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/playerTwoLine" />
+        app:layout_constraintBottom_toTopOf="@id/playerTwoSymbol"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ImageView
         android:id="@+id/playerTwoSymbol"
@@ -190,31 +189,33 @@
         android:layout_height="40dp"
         android:src="@drawable/circle"
         android:contentDescription="@string/field"
+        app:layout_constraintBottom_toTopOf="@id/playerTwoScoreTv"
         app:layout_constraintStart_toStartOf="@id/playerTwoText"
-        app:layout_constraintTop_toBottomOf="@id/playerTwoText"
         app:layout_constraintEnd_toEndOf="@id/playerTwoText"/>
 
     <TextView
         android:id="@+id/playerTwoScoreTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
         app:text="0"
         android:textSize="22sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/playerTwoText"
-        app:layout_constraintEnd_toEndOf="@id/playerTwoText"
-        app:layout_constraintTop_toBottomOf="@id/playerOneSymbol"/>
+        app:layout_constraintEnd_toEndOf="@id/playerTwoText"/>
 
     <TextView
         android:id="@+id/drawText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:textSize="18sp"
         android:text="@string/draw"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/playerOneText"
+        app:layout_constraintStart_toStartOf="@id/playerOneText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
 
     <TextView
         android:id="@+id/drawScoreTv"
@@ -223,9 +224,9 @@
         app:text="0"
         android:textSize="22sp"
         android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/drawText"
         app:layout_constraintStart_toStartOf="@id/drawText"
-        app:layout_constraintEnd_toEndOf="@id/drawText"
-        app:layout_constraintTop_toBottomOf="@id/drawText"/>
+        app:layout_constraintEnd_toEndOf="@id/drawText"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

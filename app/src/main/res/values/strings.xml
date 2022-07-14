@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TTToe</string>
+    <string name="field">field</string>
+    <string name="play">Play</string>
+    <string name="line">line</string>
+    <string name="player_1">Player 1</string>
+    <string name="player_2">Player 2</string>
+    <string name="draw">Draw</string>
+    <string name="background">background</string>
 </resources>
