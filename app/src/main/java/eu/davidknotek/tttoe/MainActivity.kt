@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import eu.davidknotek.tttoe.databinding.ActivityMainBinding
+import eu.davidknotek.tttoe.game.Player
 import eu.davidknotek.tttoe.viewmodel.TTTViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -50,6 +51,10 @@ class MainActivity : AppCompatActivity() {
                     binding.playerTwoLine.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 }
             }
+        }
+
+        tttViewModel.endGame.observe(this) {
+            binding.playBtn.isEnabled = it
         }
 
         tttViewModel.fOneOne.observe(this) {

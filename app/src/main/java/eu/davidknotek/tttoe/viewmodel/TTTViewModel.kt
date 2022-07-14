@@ -3,13 +3,15 @@ package eu.davidknotek.tttoe.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import eu.davidknotek.tttoe.Player
-import eu.davidknotek.tttoe.TicTacToe
+import eu.davidknotek.tttoe.game.Player
+import eu.davidknotek.tttoe.game.TicTacToe
 
 class TTTViewModel(application: Application): AndroidViewModel(application) {
     private val ticTacToe = TicTacToe()
 
     var currentPlayer = MutableLiveData(ticTacToe.currentPlayer)
+    var endGame = MutableLiveData(ticTacToe.endGame)
+    var winTrio = MutableLiveData(ticTacToe.winTrio)
 
     var playerOneScore = MutableLiveData(ticTacToe.playerOneScore)
     var playerTwoScore = MutableLiveData(ticTacToe.playerTwoScore)
@@ -43,6 +45,7 @@ class TTTViewModel(application: Application): AndroidViewModel(application) {
         refreshBoard()
         refreshScore()
         currentPlayer.value = ticTacToe.currentPlayer
+        endGame.value = ticTacToe.endGame
     }
 
     private fun refreshBoard() {
