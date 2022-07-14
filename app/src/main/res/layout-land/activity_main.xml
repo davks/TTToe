@@ -29,7 +29,6 @@
         <ImageView
             android:id="@+id/oneOne"
             style="@style/custom_button"
-            android:src="@drawable/cross"
             android:contentDescription="@string/field"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +36,6 @@
         <ImageView
             android:id="@+id/oneTwo"
             style="@style/custom_button"
-            android:src="@drawable/circle"
             android:contentDescription="@string/field"
             app:layout_constraintStart_toEndOf="@id/oneOne"
             app:layout_constraintTop_toTopOf="@id/oneOne" />
@@ -59,7 +57,6 @@
         <ImageView
             android:id="@+id/twoTwo"
             style="@style/custom_button"
-            android:src="@drawable/circle"
             android:contentDescription="@string/field"
             app:layout_constraintStart_toStartOf="@id/oneTwo"
             app:layout_constraintTop_toBottomOf="@id/oneTwo" />
@@ -74,7 +71,6 @@
         <ImageView
             android:id="@+id/threeOne"
             style="@style/custom_button"
-            android:src="@drawable/cross"
             android:contentDescription="@string/field"
             app:layout_constraintStart_toStartOf="@id/twoOne"
             app:layout_constraintTop_toBottomOf="@id/twoOne" />
@@ -82,7 +78,6 @@
         <ImageView
             android:id="@+id/threeTwo"
             style="@style/custom_button"
-            android:src="@drawable/circle"
             android:contentDescription="@string/field"
             app:layout_constraintStart_toStartOf="@id/twoTwo"
             app:layout_constraintTop_toBottomOf="@id/twoTwo" />
@@ -90,7 +85,6 @@
         <ImageView
             android:id="@+id/threeThree"
             style="@style/custom_button"
-            android:src="@drawable/cross"
             android:contentDescription="@string/field"
             app:layout_constraintStart_toStartOf="@id/twoThree"
             app:layout_constraintTop_toBottomOf="@id/twoThree" />
@@ -155,7 +149,7 @@
         android:id="@+id/playerOneScoreTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:text="0"
+        android:text="0"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/playerOneText"
@@ -198,7 +192,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
-        app:text="0"
+        android:text="0"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -221,7 +215,7 @@
         android:id="@+id/drawScoreTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:text="0"
+        android:text="0"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/drawText"
