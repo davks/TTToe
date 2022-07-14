@@ -1,10 +1,13 @@
 package eu.davidknotek.tttoe
 
 class TicTacToe {
+    private var endGame = false
+    private var playerWin = Player.EMPTY
     var currentPlayer = Player.X
         private set
     var board = arrayOf<Array<Player>>()
         private set
+
     var playerOneScore = 0
     var playerTwoScore = 0
     var drawScore = 0
@@ -18,14 +21,19 @@ class TicTacToe {
     }
 
     fun move(i: Int, j: Int) {
-        if (board[i][j] == Player.EMPTY) {
+        if (!endGame && board[i][j] == Player.EMPTY) {
             board[i][j] = currentPlayer
+            compareWinner()
+            checkFullBoard()
+            setScore()
             changePlayer()
         }
     }
 
     fun resetGame() {
         currentPlayer = Player.X
+        playerWin = Player.EMPTY
+        endGame = false
         resetBoard()
     }
 
@@ -48,6 +56,64 @@ class TicTacToe {
     }
 
     private fun changePlayer() {
-        currentPlayer = if (currentPlayer == Player.X) Player.O else Player.X
+        currentPlayer = when {
+            endGame -> Player.EMPTY
+            currentPlayer == Player.X -> Player.O
+            else -> Player.X
+        }
     }
+
+    private fun checkFullBoard() {
+        var playedFields = 0
+        for (i in 0 until FIELD_LENGTH) {
+            for (j in 0 until FIELD_LENGTH) {
+                if (board[i][j] != Player.EMPTY) {
+                    playedFields++
+                }
+            }
+        }
+        if (playedFields == FIELD_LENGTH * FIELD_LENGTH) {
+            endGame = true
+        }
+    }
+
+    private fun compareWinner() {
+        checkWinnerHorizontallyAndVertically()
+        checkWinnerDiagonaly()
+
+        if (playerWin != Player.EMPTY) {
+            endGame = true
+        }
+    }
+
+    private fun checkWinnerHorizontallyAndVertically() {
+        for (i in 0 until FIELD_LENGTH) {
+            if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][2] != Player.EMPTY) {
+                playerWin = board[i][0]
+            }
+            if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[2][i] != Player.EMPTY) {
+                playerWin = board[0][i]
+            }
+        }
+    }
+
+    private fun checkWinnerDiagonaly() {
+        if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[2][2] != Player.EMPTY) {
+            playerWin = board[0][0]
+        }
+        if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[2][0] != Player.EMPTY) {
+            playerWin = board[0][2]
+        }
+    }
+
+    private fun setScore() {
+        if (endGame) {
+            when (playerWin) {
+                Player.X -> playerOneScore++
+                Player.O -> playerTwoScore++
+                else -> drawScore++
+            }
+        }
+    }
+
 }

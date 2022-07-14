@@ -41,6 +41,7 @@ class TTTViewModel(application: Application): AndroidViewModel(application) {
 
     private fun refresh() {
         refreshBoard()
+        refreshScore()
         currentPlayer.value = ticTacToe.currentPlayer
     }
 
@@ -54,5 +55,11 @@ class TTTViewModel(application: Application): AndroidViewModel(application) {
         fThreeOne.value = ticTacToe.board[2][0]
         fThreeTwo.value = ticTacToe.board[2][1]
         fThreeThree.value = ticTacToe.board[2][2]
+    }
+
+    private fun refreshScore() {
+        drawScore.value = ticTacToe.drawScore
+        playerOneScore.value = ticTacToe.playerOneScore
+        playerTwoScore.value = ticTacToe.playerTwoScore
     }
 }
