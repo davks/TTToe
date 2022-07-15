@@ -1,6 +1,6 @@
 package eu.davidknotek.tttoe.game
 
-enum class WinTrio {
+enum class WinTrioField {
     NONE,
     ROW_ONE,
     ROW_TWO,

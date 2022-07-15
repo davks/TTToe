@@ -11,7 +11,7 @@ class TTTViewModel(application: Application): AndroidViewModel(application) {
 
     var currentPlayer = MutableLiveData(ticTacToe.currentPlayer)
     var endGame = MutableLiveData(ticTacToe.endGame)
-    var winTrio = MutableLiveData(ticTacToe.winTrio)
+    var winTrioField = MutableLiveData(ticTacToe.winTrioField)
 
     var playerOneScore = MutableLiveData(ticTacToe.playerOneScore)
     var playerTwoScore = MutableLiveData(ticTacToe.playerTwoScore)
@@ -46,6 +46,7 @@ class TTTViewModel(application: Application): AndroidViewModel(application) {
         refreshScore()
         currentPlayer.value = ticTacToe.currentPlayer
         endGame.value = ticTacToe.endGame
+        winTrioField.value = ticTacToe.winTrioField
     }
 
     private fun refreshBoard() {
